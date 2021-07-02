@@ -1,0 +1,270 @@
+@mixin flexAlign($horizontal: center, $vert: center, $pos: row) {
+    display: flex;
+    align-items: $vert;
+    justify-content: $horizontal;
+    flex-direction: $pos;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic,cyrillic-ext');
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    background-color: rgba(230, 230, 235, 0.986);
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(black, .7);
+    @include flexAlign();
+    &__modal {
+        @include flexAlign($pos: column);
+        padding: 40px 20px;
+        width: 35%;
+        min-width: 320px;
+        background: rgb(153,19,186);
+        background: linear-gradient(320deg, rgba(153,19,186,1) 11%, rgba(153,19,186,1) 24%, rgba(126,51,231,1) 70%, rgba(0,212,255,1) 100%);
+        border-radius: 25px;
+
+        .modal__field {
+            width: 100%;
+            @include flexAlign(flex-start,
+            flex-start,
+            column);
+            margin-bottom: 20px;
+            &:nth-child(4) {
+                display: none;
+            }
+            &-name {
+                font-style: italic;
+                font-size: 15px;
+                color: #0e1111;
+            }
+            &-input {
+                outline: none;
+                width: 100%;
+                height: 27px;
+                border: 1px solid gray;
+                border-radius: 3px;
+                padding-left: 7px;
+                font-size: 18px;
+            }
+        }
+        .modal__buttons {
+            width: 100%;
+            @include flexAlign(space-between);
+            height: 40px;
+            .actions {
+                @include flexAlign;
+                height: 100%;
+                &__button {
+                    padding: 0 20px;
+                    margin-right: 15px;
+                    cursor: pointer;
+                    height: 100%;
+                    background-color: lightblue;
+                    @include flexAlign;
+                    border-bottom: 2px solid transparent;
+                    user-select: none;
+                    border-radius: 2px;
+                    &_active {
+                        border-bottom: 2px solid lightcoral;
+                    }
+                }
+            }
+            .modal__button {
+                width: 107px;
+                height: 40px;
+                @include flexAlign;
+                background-color: lightcoral;
+                cursor: pointer;
+                font-size: 18px;
+                box-sizing: border-box;
+                transition: .3s;
+                box-shadow: 0 0 7px 0 black;
+                border-radius: 4px;
+                &:hover {
+                    box-shadow: 0 0 0 0 transparent;
+                }
+            }
+        }
+    }
+}
+
+.header {
+    width: 100%;
+    height: 80px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    @include flexAlign(space-between);
+    background: grey;
+    &__logo {
+        width: 100px;
+        height: 100px;
+    }
+    &__user {
+        height: 100%;
+        @include flexAlign;
+        text-decoration: none;
+        color: blue;
+        &:active {
+            color: blue;
+        }
+        &-img {
+            height: 90%;
+            margin-right: 10px;
+        }
+    }
+}
+
+.content {
+    width: 100%;
+    height: calc(100vh - 60px);
+    @include flexAlign(space-around);
+    padding: 20px 40px;
+    box-sizing: border-box;
+    .products {
+        width: 60%;
+        border: 2px solid #c29bde;
+        margin-right: 10px;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 10px;
+        box-sizing: border-box;
+        border-radius: 1%;
+        background-color: rgba(246, 246, 249, 1);
+    }
+    
+
+    .edit {
+        width: 40%;
+        border: 2px solid #c29bde;
+        height: 100%;
+        @include flexAlign($horizontal: flex-start, $pos: column);
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        position: relative;
+        background-color: rgba(246, 246, 249, 1);
+
+        &__image {
+            height: 300px;
+            width: 300px;
+            border: 1px solid blue;
+            margin-bottom: 30px;
+            &-img {
+                width: 100%;
+                height: 100%;
+            }
+            &-inp {
+                display: none;
+            }
+        }
+        &__field {
+            width: 80%;
+            height: 40px;
+            @include flexAlign(space-between);
+            margin-bottom: 15px;
+            border-bottom: 2px solid gray;
+            &_big {
+                @include flexAlign($vert: flex-start, $pos: column);
+                height: 200px;
+            }
+            &-inp {
+                width: 70%;
+                height: 30px;
+                outline: none;
+            }
+            &-desc {
+                height: 80%;
+                width: 100%;
+                outline: none;
+            }
+        }
+    }
+}
+
+.card {
+    border: 4px solid rgba(243, 242, 247, 1);
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    box-sizing: border-box;
+    @include flexAlign(space-between);
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 4px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    &__photo {
+        width: 80px;
+        height: 80px;
+    }
+    &__info {
+        width: 70%;
+        @include flexAlign(flex-start,
+        flex-start,
+        column);
+        &-data {
+            @include flexAlign(space-between);
+            width: 100%;
+            height: 25px;
+            &-name {
+                width: 70%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 20px;
+            }
+            &-price {
+                font-weight: bold;
+                color: rgba(135, 110, 240, 1);
+                font-size: 18px;
+            }
+        }
+        &-description {
+            font-style: italic;
+            width: 100%;
+            height: 65px;
+            overflow: hidden;
+        }
+    }
+    &__edit {
+        height: 100%;
+        @include flexAlign(space-around,
+        $pos: column);
+        &-item {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+#editProduct {
+    display: none;
+}

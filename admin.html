@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic,cyrillic-ext" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <img class="header__logo" src="./images/logo.png" alt="">
+
+        <a class="header__user" href="admin.html">
+            <img class="header__user-img" src="./images/user.png" alt="">
+            <button id="logout">Logout</button>
+        </a>
+    </div>
+
+    <div class="content">
+        <div class="products"></div>
+
+        <div class="edit">
+
+            <label class="edit__image">
+                <img class="edit__image-img" id="img" src="./images/stub.png" alt="">
+                <input class="edit__image-inp" type="file" onchange="loadFile(event)">
+            </label>
+            <div class="edit__field">
+                <span class="edit__field-name">Название:</span>
+                <input id="name" type="text" class="edit__field-inp">
+            </div>
+
+            <div class="edit__field edit__field-big">
+                <span class="edit__field-name">Описание:</span>
+                <textarea id="desc" class="edit__field-desc" name="" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <div class="edit__field">
+                <span class="edit__field-name">Цена:</span>
+                <input id="price" type="number" class="edit__field-inp">
+            </div>
+
+            <button id="saveProduct">Add</button>
+            <button id="editProduct">Save</button>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <form id="form" class="wrapper__modal">
+            <h3 class="form__title">Login</h3>
+
+            <div class="modal__field">
+                <span class="modal__field-name">Email</span>
+                <input required name="email" maxlength="50" placeholder="test@email.com" class="modal__field-input" type="text">
+            </div>
+
+            <div class="modal__field">
+                <span class="modal__field-name">Password</span>
+                <input required name="password" minlength="6" maxlength="27" placeholder="password" class="modal__field-input" type="password">
+            </div>
+
+            <div class="modal__field">
+                <span class="modal__field-name">Confirm Password</span>
+                <input required name="confirm" minlength="6" maxlength="27" placeholder="password" class="modal__field-input" type="password">
+            </div>
+
+
+
+            <div class="modal__buttons">
+                <div class="actions">
+                    <div class="actions__button actions__button_active" id="auth">Login</div>
+                    <div class="actions__button" id="register">Register</div>
+                </div>
+
+                <div id="send" class="modal__button">OK</div>
+            </div>
+
+            <script src="js/auth.js "></script>
+        </form>
+    </div>
+
+</body>
+
+</html>

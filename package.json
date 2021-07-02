@@ -1,0 +1,23 @@
+{
+  "name": "shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node-sass scss/ -o css/",
+    "watch": "npm run compile && node-sass scss/styles.scss -wo css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crockett1981/Shop.git"
+  },
+  "author": "crockett1981",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crockett1981/Shop/issues"
+  },
+  "homepage": "https://github.com/crockett1981/Shop#readme",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
