@@ -1,5 +1,5 @@
 const token = localStorage.getItem('token');
-const BASE_URL = "BASE_URL";
+const BASE_URL = "https://localhost:7164";
 
 if (token) {
     getUserData().then(result => result.json().then(data => setName(data.email)));
@@ -19,7 +19,7 @@ function getUserData() {
 getProducts();
 
 function getProducts() {
-    fetch(BASE_URL.concat('/products'), {
+    fetch(BASE_URL.concat('/api/products'), {
         method: 'GET'
     }).then(result => result.json().then(data => showProducts(data)));
 }

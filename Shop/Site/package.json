@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/crockett1981/Shop#readme",
   "dependencies": {
-    "node-sass": "^4.13.1"
+    "node-sass": "6.0.1"
   }
 }
